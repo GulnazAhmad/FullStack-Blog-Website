@@ -52,6 +52,13 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
 });
 
 //app.use(verifyToken);
+// ✅ Serve static frontend files built by Vite
+app.use(express.static(path.join(__dirname, "public"))); // public has index.html and assets/
+
+// ✅ Handle SPA fallback — send index.html for unknown routes
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
 
 app.listen(process.env.PORT, () => {
   connectDb();
