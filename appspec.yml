@@ -1,0 +1,21 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /var/www/ExpressIt # ✅ unchanged, set by you
+
+hooks:
+  BeforeInstall:
+    - location: scripts/before_install.sh # ✅ changed: was `scriptss`, now `scripts`
+      timeout: 300
+      runas: root
+
+  ApplicationStop:
+    - location: scripts/app_stop.sh # ✅ changed: was `scriptss`, now `scripts`
+      timeout: 60
+      runas: root
+
+  ApplicationStart:
+    - location: scripts/app_start.sh # ✅ changed: was `scriptss`, now `scripts`
+      timeout: 120
+      runas: root

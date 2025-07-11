@@ -1,29 +1,35 @@
 version: 0.2
 
-env:
-  variables:
-    IMAGE_REPO_NAME: "devops-ecr"
-    IMAGE_TAG: "latest"
-    AWS_DEFAULT_REGION: "eu-west-3"
-    REPOSITORY_URI: "961308088645.dkr.ecr.eu-west-3.amazonaws.com/devops-ecr" # <-- your real URI here
-
 phases:
-  pre_build:
+  install:
+    runtime-versions:
+      nodejs: 16
     commands:
-      - echo Logging into Amazon ECR...
-      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $REPOSITORY_URI
+      - echo Installing backend dependencies...
+      - cd backend
+      - npm install
+      - echo Installing frontend dependencies...
+      - cd ../frontend
+      - npm install
 
   build:
     commands:
-      - echo Building Docker image...
-      - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG .
-      - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $REPOSITORY_URI:$IMAGE_TAG
+      - echo Building Vite frontend...
+      - npm run build
+      - echo Copying Vite build to backend/public...
+      - mkdir -p ../backend/public
+      - cp -r dist/* ../backend/public/
 
   post_build:
     commands:
-      - echo Pushing Docker image to ECR...
-      - docker push $REPOSITORY_URI:$IMAGE_TAG
       - echo Build completed on `date`
+      - cd ../backend
+      - cp ../appspec.yml .
+      - cp -r ../scripts .
+      # optional cleanup: remove dev dependencies
+      # - npm prune --production
 
 artifacts:
-  files: "**/*"
+  files:
+    - "**/*"
+  base-directory: backend
