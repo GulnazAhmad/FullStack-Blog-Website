@@ -1,3 +1,4 @@
+# Build Stage
 FROM node:22 as build
 
 WORKDIR /app
@@ -6,8 +7,15 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-#base image
-FROM nginx:alpine 
+# Production Stage
+FROM nginx:alpine
+
+# Copy build output to Nginx HTML directory
 COPY --from=build /app/dist /usr/share/nginx/html
+
+# Copy custom Nginx config to override default
+COPY nginx.conf /etc/nginx/nginx.conf
+
 EXPOSE 80
+
 CMD ["nginx", "-g", "daemon off;"]

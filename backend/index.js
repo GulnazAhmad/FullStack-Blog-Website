@@ -25,7 +25,7 @@ const connectDb = async () => {
 app.use(express.json());
 app.use("/images", express.static(path.join(__dirname, "images")));
 app.use(cookieParser());
-app.use(cors({ origin: "http://35.180.97.86", credentials: true }));
+app.use(cors({ origin: true, credentials: true }));
 app.use(router);
 app.use(userRouter);
 app.use(postRouter);
