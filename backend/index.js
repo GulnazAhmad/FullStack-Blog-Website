@@ -23,7 +23,7 @@ const connectDb = async () => {
 };
 //middlewares
 app.use(express.json());
-app.use("/images", express.static(path.join(__dirname, "images")));
+app.use("/images", express.static(path.join(__dirname, "public/images")));
 app.use(cookieParser());
 app.use(cors({ origin: true, credentials: true }));
 app.use(router);
@@ -35,7 +35,7 @@ app.use(commentRouter);
 const storage = multer.diskStorage({
   destination: (req, file, fn) => {
     //fn callback function
-    fn(null, "images/");
+    fn(null, "public/images/");
   },
   filename: (req, file, fn) => {
     //fn(null, req.body.img);

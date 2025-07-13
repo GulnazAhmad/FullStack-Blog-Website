@@ -167,8 +167,8 @@ const Postdetails = () => {
                   <div className="flex justify-between text-center py-4">
                     <p className="font-bold">@{c.author}</p>
                     <div className="flex gap-4 ">
-                      <p>{new Date(post.updatedAt).toString().slice(0, 15)}</p>
-                      <p>{new Date(post.updatedAt).toString().slice(16, 24)}</p>
+                      <p>{new Date(c.updatedAt).toString().slice(0, 15)}</p>
+                      <p>{new Date(c.updatedAt).toString().slice(16, 24)}</p>
                     </div>
                   </div>
                   <div>{c.comment}</div>

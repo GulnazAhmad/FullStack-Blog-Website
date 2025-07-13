@@ -9,7 +9,7 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./backend/images:/app/images
+      - /home/ubuntu/uploads:/app/public/images # ✅ external, persistent path
 
   frontend:
     build: ./frontend
