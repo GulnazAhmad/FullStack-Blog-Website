@@ -136,9 +136,7 @@ const Postdetails = () => {
                 src={
                   post.photo?.startsWith("http")
                     ? post.photo
-                    : `http://localhost:8000/images/${encodeURIComponent(
-                        post.photo
-                      )}`
+                    : URL + `/images/${encodeURIComponent(post.photo)}`
                 }
                 alt="post"
                 className="w-full h-auto rounded-lg"

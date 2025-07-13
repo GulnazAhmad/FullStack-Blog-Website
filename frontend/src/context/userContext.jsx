@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { createContext } from "react";
 export const userContext = createContext({});
 import axios from "axios";
+import URL from "../url";
 export function UserContextProvider({ children }) {
   const [user, setUser] = useState(null);
 
@@ -20,7 +21,7 @@ Without useEffect(), the call would not run automatically.*/
   }, []);
   const getUser = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/refetch", {
+      const res = await axios.get(URL + "/refetch", {
         withCredentials: true,
       });
       const user = res.data;
