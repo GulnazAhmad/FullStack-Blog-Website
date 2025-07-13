@@ -1,10 +1,10 @@
 import React from "react";
-import { IF } from "../url";
+import { URL } from "../url";
 const Blogposts = ({ post }) => {
   if (!post) return null; // prevent rendering if post is undefined
   const imageSrc = post.photo?.startsWith("http")
     ? post.photo
-    : `${IF}/images/${post.photo}`;
+    : `${URL}/images/${post.photo}`;
   return (
     <>
       <div className=" flex mt-8 space-x-4 ml-4 mr-4">
