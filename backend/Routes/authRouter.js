@@ -110,4 +110,20 @@ router.get("/refetch", async (req, res) => {
   });
 });
 
+app.get("/debug-cookie", (req, res) => {
+  res.cookie("jwttoken", "test-token-123", {
+    httpOnly: true,
+    secure: false, // since you're on HTTP
+    sameSite: "lax",
+  });
+  res.send("Test cookie set");
+});
+
+app.get("/check-cookie", (req, res) => {
+  const token = req.cookies.jwttoken;
+  if (!token) return res.status(401).send("Unauthorized");
+
+  res.send(`Token received: ${token}`);
+});
+
 module.exports = router;
