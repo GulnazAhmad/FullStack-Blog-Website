@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { MdCancel } from "react-icons/md";
 import { userContext } from "../context/userContext";
-import URL from "../url";
+import { URL } from "../url";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 

@@ -6,8 +6,8 @@ import { MdDeleteForever } from "react-icons/md";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
-import URL from "../url";
-import IF from "../url";
+import { URL } from "../url";
+import { IF } from "../url";
 import { userContext } from "../context/userContext";
 import Loader from "../components/Loader";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import IF from "../url";
+import { IF } from "../url";
 const Blogposts = ({ post }) => {
   if (!post) return null; // prevent rendering if post is undefined
   const imageSrc = post.photo?.startsWith("http")

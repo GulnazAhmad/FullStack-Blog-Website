@@ -3,7 +3,7 @@ import Blogposts from "../components/Blogposts";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useEffect, useState } from "react";
-import URL from "../url";
+import { URL } from "../url";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import { useContext } from "react";

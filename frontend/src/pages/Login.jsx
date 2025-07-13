@@ -2,7 +2,7 @@ import { FaOtter } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import { useState } from "react";
-import URL from "../url";
+import { URL } from "../url";
 import axios from "axios";
 import { useContext } from "react";
 import { userContext } from "../context/userContext";

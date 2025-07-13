@@ -6,7 +6,7 @@ import { MdCancel } from "react-icons/md";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import axios from "axios";
-import URL from "../url";
+import { URL } from "../url";
 import { userContext } from "../context/userContext";
 import { useContext } from "react";
 import { Navigate } from "react-router-dom";

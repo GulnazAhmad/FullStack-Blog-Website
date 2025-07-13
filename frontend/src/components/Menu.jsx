@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { userContext } from "../context/userContext";
 import axios from "axios";
-import URL from "../url";
+import { URL } from "../url";
 import { Link } from "react-router-dom";
 const Menu = () => {
   const { user } = useContext(userContext);

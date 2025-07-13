@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Blogposts from "../components/Blogposts";
-import URL from "../url";
+import { URL } from "../url";
 const Myblogs = () => {
   const user = useContext(userContext);
   const [posts, setPosts] = useState([]);

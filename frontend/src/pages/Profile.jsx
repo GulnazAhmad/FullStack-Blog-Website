@@ -5,7 +5,7 @@ import Blogposts from "../components/Blogposts";
 import { useContext } from "react";
 import { userContext } from "../context/userContext";
 import axios from "axios";
-import URL from "../url";
+import { URL } from "../url";
 const Profile = () => {
   const user = useContext(userContext);
   //console.log(user.user);
