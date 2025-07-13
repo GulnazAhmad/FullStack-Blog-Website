@@ -94,7 +94,7 @@ const Postdetails = () => {
   }
 
   //console.log("Rendering post:", post);
-  //console.log("Image path:", `http://localhost:8000/images/${post.photo}`);
+
   //console.log(user);
   //console.log("user", user?.user?._id);
   //console.log(post.userId);
