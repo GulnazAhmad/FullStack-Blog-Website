@@ -9,11 +9,11 @@ const Blogposts = ({ post }) => {
     <>
       <div className="flex flex-col md:flex-row bg-white rounded-xl shadow-lg overflow-hidden mt-8 mx-4 hover:shadow-2xl transition-shadow duration-300">
         {/* Image */}
-        <div className="md:w-1/3 h-64 md:h-auto flex-shrink-0">
+        <div className="w-48 h-48 flex-shrink-0 rounded-l-xl overflow-hidden">
           <img
             src={imageSrc}
             alt={post.title}
-            className="w-full h-full object-cover rounded-l-xl"
+            className="w-full h-full object-cover"
           />
         </div>
 
