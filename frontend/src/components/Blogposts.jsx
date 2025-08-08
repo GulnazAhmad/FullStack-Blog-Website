@@ -10,11 +10,11 @@ const Blogposts = ({ post }) => {
     : `${URL}/images/${post.photo}`;
 
   return (
-    <div className="flex bg-white rounded-xl shadow-md overflow-hidden my-8 mx-auto max-w-4xl hover:shadow-xl transition-shadow duration-300">
-      {/* --- Image Section (Left) --- */}
-      {/* 'flex-none' prevents this container from shrinking. */}
-      {/* Adjusted widths for better balance on all screens. */}
-      <div className="flex-none w-1/3 md:w-2/5 relative">
+    // The main container now uses flex-col by default and switches to flex-row on medium screens (md) and up.
+    <div className="flex flex-col md:flex-row bg-white rounded-xl shadow-md overflow-hidden my-8 mx-auto max-w-4xl hover:shadow-xl transition-shadow duration-300">
+      {/* --- Image Section (Left on large screens) --- */}
+      {/* Takes full width on small screens, and 1/3 width on medium screens and up. */}
+      <div className="w-full md:w-1/3 h-56 md:h-auto relative">
         <img
           src={imageSrc}
           alt={post.title}
@@ -22,12 +22,14 @@ const Blogposts = ({ post }) => {
         />
       </div>
 
-      {/* --- Content Section (Right) --- */}
-      <div className="p-6 md:p-8 flex flex-col justify-between w-2/3 md:w-3/5">
+      {/* --- Content Section (Right on large screens) --- */}
+      {/* Takes full width on small screens, and 2/3 width on medium screens and up. */}
+      <div className="w-full md:w-2/3 p-6 md:p-8 flex flex-col justify-between">
         <div>
           <h1 className="text-xl md:text-2xl font-bold text-gray-900 mb-2 leading-tight">
             {post.title}
           </h1>
+          {/* This inner container also becomes responsive to prevent date wrapping */}
           <div className="flex flex-col sm:flex-row justify-between text-sm font-semibold text-gray-500 mb-4">
             <p className="mb-1 sm:mb-0">@{post.username}</p>
             <div className="flex space-x-3">
