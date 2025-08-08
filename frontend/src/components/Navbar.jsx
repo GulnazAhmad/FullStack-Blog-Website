@@ -22,54 +22,69 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="flex items-center justify-between px-6 md:[200px] py-4">
-        <h1 className="text-lg md:text-xl font-extrabold">
+      <div className="flex items-center justify-between px-6 py-4 bg-white shadow-md sticky top-0 z-50">
+        <h1 className="text-2xl font-extrabold text-indigo-600 hover:text-indigo-700 transition-colors">
           <Link to="/">Blog Market</Link>
         </h1>
+
         {path === "/" && (
-          <div className="ml-4 flex items-center justify-center space-x-0 cursor-pointer">
-            <p
+          <div className="ml-4 flex items-center space-x-2 bg-gray-100 rounded-lg px-3 py-1 shadow-inner">
+            <button
               onClick={() => navigate("/?title=" + prompt.trim())}
-              className="cursor-pointer"
+              className="text-indigo-600 hover:text-indigo-800 focus:outline-none focus:ring-2 focus:ring-indigo-400 rounded"
+              aria-label="Search posts"
             >
-              {" "}
-              <FaSearch />
-            </p>
+              <FaSearch size={18} />
+            </button>
             <input
               onChange={(e) => setPrompt(e.target.value)}
               type="text"
-              placeholder="search a post"
-              className="px-3 py-3 outline-none "
-            ></input>
+              placeholder="Search a post"
+              className="bg-transparent outline-none text-gray-700 placeholder-gray-400 w-48 md:w-72"
+            />
           </div>
         )}
-        <div className="hidden md:flex items-center justify-center space-x-2 md:space-x-4">
+
+        <div className="hidden md:flex items-center space-x-6 text-gray-700 font-semibold">
           {user ? (
-            <h3>
-              <Link to="/write">Write</Link>
-            </h3>
+            <Link
+              to="/write"
+              className="hover:text-indigo-600 transition-colors"
+            >
+              Write
+            </Link>
           ) : (
-            <h3>
-              <Link to="/login">Login</Link>
-            </h3>
+            <Link
+              to="/login"
+              className="hover:text-indigo-600 transition-colors"
+            >
+              Login
+            </Link>
           )}
+
           {user ? (
-            <div onClick={showMenu}>
-              <p className="cursor-pointer">
-                <FaBars />
-              </p>
+            <div
+              onClick={showMenu}
+              className="cursor-pointer text-gray-600 hover:text-indigo-600"
+            >
+              <FaBars size={20} />
               {menu && <Menu />}
             </div>
           ) : (
-            <h3>
-              <Link to="/register">Register</Link>
-            </h3>
+            <Link
+              to="/register"
+              className="hover:text-indigo-600 transition-colors"
+            >
+              Register
+            </Link>
           )}
         </div>
-        <div className="md:hidden " onClick={showMenu}>
-          <p>
-            <FaBars />
-          </p>
+
+        <div
+          className="md:hidden cursor-pointer text-gray-600 hover:text-indigo-600"
+          onClick={showMenu}
+        >
+          <FaBars size={22} />
           {menu && <Menu />}
         </div>
       </div>

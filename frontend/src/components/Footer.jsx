@@ -3,28 +3,31 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <>
-      <div className="gap-8 flex text-sm md:text-md bg-black text-white px-8 py-8 md:px-[500] items-center justify-center mt-5 md:mt-8">
-        <div className="w-[30%] flexbox">
-          <p>
-            <Link to="/featured">Featured Blogs</Link>
-          </p>
+      <div className="bg-gray-900 text-gray-300 px-8 py-10 md:px-32 grid grid-cols-1 md:grid-cols-3 gap-8 text-sm md:text-base">
+        <div className="space-y-3">
+          <Link
+            to="/featured"
+            className="hover:text-indigo-400 transition-colors"
+          >
+            Featured Blogs
+          </Link>
           <p>Most Viewed</p>
           <p>Readers Choice</p>
         </div>
-        <div className="w-[30%] flexbox">
-          <p>Forrum</p>
+        <div className="space-y-3">
+          <p>Forum</p>
           <p>Support</p>
           <p>Recent Posts</p>
         </div>
-        <div className="w-[30%] flexbox">
-          <p>Privacy policy</p>
+        <div className="space-y-3">
+          <p>Privacy Policy</p>
           <p>About Us</p>
           <p>Terms & Conditions</p>
           <p>Terms of Service</p>
         </div>
       </div>
-      <p className="py-2 pb-2 text-sm text-center text-white bg-black">
-        All rights are reserved by BlogMarket@2025
+      <p className="bg-gray-900 text-gray-400 text-center text-sm py-4">
+        All rights reserved by BlogMarket @ 2025
       </p>
     </>
   );

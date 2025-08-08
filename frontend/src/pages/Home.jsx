@@ -41,23 +41,28 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <div className="px-8">
+      <div className="px-8 max-w-7xl mx-auto">
         {loader ? (
-          <div className="h-[40vh] flex items-center ">
+          <div className="h-[40vh] flex items-center justify-center">
             <Loader />
           </div>
         ) : !noresults ? (
           posts.map((p) => (
-            <Link to={user ? `posts/post/${p._id}` : "/login"}>
-              <Blogposts key={p._id} post={p} />
-            </Link> //parent passing props to child blogpost
+            <Link
+              key={p._id}
+              to={user ? `posts/post/${p._id}` : "/login"}
+              className="block mb-6 p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300"
+            >
+              <Blogposts post={p} />
+            </Link>
           ))
         ) : (
-          <h4 className="text-red-800 font-400 text-200 justify-center text-center">
+          <h4 className="text-red-600 font-semibold text-xl text-center mt-10">
             No Results found
           </h4>
         )}
       </div>
+
       <Footer />
     </>
   );

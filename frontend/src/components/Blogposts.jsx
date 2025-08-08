@@ -7,36 +7,47 @@ const Blogposts = ({ post }) => {
     : `${URL}/images/${post.photo}`;
   return (
     <>
-      <div className=" flex mt-8 space-x-4 ml-4 mr-4">
-        {/*left*/}
-        <div className="w-[35%] h-[300px] flex justify-center items-center">
+      <div className="flex flex-col md:flex-row bg-white rounded-xl shadow-lg overflow-hidden mt-8 mx-4 hover:shadow-2xl transition-shadow duration-300">
+        {/* Image */}
+        <div className="md:w-1/3 h-64 md:h-auto flex-shrink-0">
           <img
             src={imageSrc}
-            alt=""
-            className="h-full w-full object-cover rounded-md"
+            alt={post.title}
+            className="w-full h-full object-cover rounded-l-xl"
           />
         </div>
 
-        {/*right*/}
-        <div className="flex flex-col w-[65%]">
-          <h1 className="text-x1 font-bold mb-1 md:mb-2 md:text-2xl">
+        {/* Content */}
+        <div className="md:w-2/3 p-6 flex flex-col justify-between">
+          <h1 className="text-xl md:text-3xl font-bold mb-2 text-gray-900">
             {post.title}
           </h1>
-          <div className="flex justify-between mb-2 text-sm font-semibold text-gray-500 md:mb-4">
+
+          <div className="flex justify-between text-sm font-semibold text-gray-500 mb-4">
             <p>@{post.username}</p>
-            <div className="flex space-x-2">
-              <p>{new Date(post.updatedAt).toString().slice(0, 15)}</p>
-              <p>{new Date(post.updatedAt).toString().slice(16, 24)}</p>
+            <div className="flex space-x-4">
+              <time dateTime={post.updatedAt}>
+                {new Date(post.updatedAt).toLocaleDateString(undefined, {
+                  year: "numeric",
+                  month: "short",
+                  day: "numeric",
+                })}
+              </time>
+              <time dateTime={post.updatedAt}>
+                {new Date(post.updatedAt).toLocaleTimeString(undefined, {
+                  hour: "2-digit",
+                  minute: "2-digit",
+                })}
+              </time>
             </div>
           </div>
 
-          <div>
-            <p className="text-sm md:text-lg ">
-              {" "}
-              {post.description.slice(0, 200)}
-              <span className="text-blue-700">"...Read more"</span>
-            </p>
-          </div>
+          <p className="text-gray-700 text-sm md:text-lg line-clamp-5">
+            {post.description}
+            <span className="text-indigo-600 font-semibold cursor-pointer ml-1">
+              ...Read more
+            </span>
+          </p>
         </div>
       </div>
     </>
