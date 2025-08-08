@@ -7,9 +7,9 @@ const Blogposts = ({ post }) => {
     : `${URL}/images/${post.photo}`;
   return (
     <>
-      <div className="flex flex-col md:flex-row bg-white rounded-xl shadow-lg overflow-hidden mt-8 mx-4 hover:shadow-2xl transition-shadow duration-300">
-        {/* Image container takes ~40% width on md+ screens, full width on mobile */}
-        <div className="w-full md:w-2/5 flex-shrink-0 rounded-t-xl md:rounded-l-xl overflow-hidden">
+      <div className="flex flex-col lg:flex-row bg-white rounded-xl shadow-lg overflow-hidden mt-8 mx-4 hover:shadow-2xl transition-shadow duration-300">
+        {/* Image container */}
+        <div className="w-full lg:w-2/5 h-60 lg:h-auto overflow-hidden rounded-t-xl lg:rounded-l-xl lg:rounded-tr-none">
           <img
             src={imageSrc}
             alt={post.title}
@@ -18,9 +18,9 @@ const Blogposts = ({ post }) => {
           />
         </div>
 
-        {/* Content side */}
-        <div className="w-full md:w-3/5 p-6 flex flex-col justify-between">
-          <h1 className="text-xl md:text-3xl font-bold mb-2 text-gray-900">
+        {/* Content */}
+        <div className="w-full lg:w-3/5 p-6 flex flex-col justify-between">
+          <h1 className="text-xl lg:text-3xl font-bold mb-2 text-gray-900">
             {post.title}
           </h1>
           <div className="flex justify-between text-sm font-semibold text-gray-500 mb-4">
@@ -41,7 +41,7 @@ const Blogposts = ({ post }) => {
               </time>
             </div>
           </div>
-          <p className="text-gray-700 text-sm md:text-lg line-clamp-5">
+          <p className="text-gray-700 text-sm lg:text-lg line-clamp-5">
             {post.description}
             <span className="text-indigo-600 font-semibold cursor-pointer ml-1">
               ...Read more
