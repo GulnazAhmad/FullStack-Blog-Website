@@ -109,7 +109,7 @@ const Postdetails = () => {
           <Loader />
         </div>
       ) : (
-        <div className="mx-8 px-4">
+        <div className="mx-8 px-4 my-6">
           <div className="flex flex-col justify-between text-center mt-6">
             <h1 className="text-left font-extrabold text-4xl">{post.title}</h1>
             {user?.user?._id == post.userId && (
@@ -195,7 +195,7 @@ const Postdetails = () => {
             })}
           </div>
 
-          <div className=" flex justify-between mt-6 mb-4">
+          <div className=" flex justify-between mt-6 m-4">
             <input
               onChange={(e) => setCommentText(e.target.value)}
               value={commentText}
