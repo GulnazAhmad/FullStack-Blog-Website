@@ -89,7 +89,7 @@ const Editpost = () => {
   return (
     <>
       <Navbar />
-      <div>
+      <div className="my-5">
         <div className="text-left mx-8 mt-10 px-4">
           <h1 className="text-2xl font-bold mb-8">Edit a post</h1>
           <form>

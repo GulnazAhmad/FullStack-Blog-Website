@@ -41,7 +41,7 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <div className="px-8 max-w-7xl mx-auto">
+      <div className="px-8 max-w-7xl mx-auto my-5">
         {loader ? (
           <div className="h-[40vh] flex items-center justify-center">
             <Loader />

@@ -69,7 +69,7 @@ const CreatePost = () => {
   return (
     <>
       <Navbar />
-      <div>
+      <div className="m-5">
         <div className="text-left mx-8 mt-10 px-4">
           <h1 className="text-2xl font-bold mb-8">Create a post</h1>
           <form>
