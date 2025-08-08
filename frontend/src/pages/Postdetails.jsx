@@ -92,6 +92,8 @@ const Postdetails = () => {
       </>
     );
   }
+  // Inside your React component, before the return(...)
+  console.log("Checking the date value:", post.updatedAt);
 
   //console.log("Rendering post:", post);
 
