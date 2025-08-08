@@ -102,7 +102,7 @@ const Postdetails = () => {
       ) : (
         // Main content container with increased vertical padding for better spacing
         <div className="px-6 md:px-8 lg:px-12 py-12">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-4xl mx-auto mb-16">
             <div className="flex flex-col justify-between">
               <h1 className="text-left font-extrabold text-4xl">
                 {post.title}
