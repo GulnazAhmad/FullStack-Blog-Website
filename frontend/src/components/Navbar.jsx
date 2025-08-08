@@ -24,7 +24,7 @@ const Navbar = () => {
     <>
       <div className="flex items-center justify-between px-6 md:[200px] py-4">
         <h1 className="text-lg md:text-xl font-extrabold">
-          <Link to="/">Flop Market</Link>
+          <Link to="/">Blog Market</Link>
         </h1>
         {path === "/" && (
           <div className="ml-4 flex items-center justify-center space-x-0 cursor-pointer">
