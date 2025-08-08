@@ -163,20 +163,26 @@ const Postdetails = () => {
 
           <div>
             <p className="font-bold">Comments:</p>
-            {comments?.map((c) => (
-              <div key={c._id} className="mt-4 my-4">
-                <div className="bg-gray-300 mb-4 px-4 rounded-[10px] my-4 pb-4">
-                  <div className="flex justify-between text-center py-4">
-                    <p className="font-bold">@{c.author}</p>
-                    <div className="flex gap-4 ">
-                      <p>{new Date(c.updatedAt).toString().slice(0, 15)}</p>
-                      <p>{new Date(c.updatedAt).toString().slice(16, 24)}</p>
+            {comments?.map((c) => {
+              console.log(
+                `Checking date for comment by ${c.author}:`,
+                c.updatedAt
+              );
+              return (
+                <div key={c._id} className="mt-4 my-4">
+                  <div className="bg-gray-300 mb-4 px-4 rounded-[10px] my-4 pb-4">
+                    <div className="flex justify-between text-center py-4">
+                      <p className="font-bold">@{c.author}</p>
+                      <div className="flex gap-4 ">
+                        <p>{new Date(c.updatedAt).toString().slice(0, 15)}</p>
+                        <p>{new Date(c.updatedAt).toString().slice(16, 24)}</p>
+                      </div>
                     </div>
+                    <div>{c.comment}</div>
                   </div>
-                  <div>{c.comment}</div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           <div className=" flex justify-between mt-6">
