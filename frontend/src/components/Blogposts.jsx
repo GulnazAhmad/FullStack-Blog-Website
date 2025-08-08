@@ -8,15 +8,13 @@ const Blogposts = ({ post }) => {
   return (
     <>
       <div className="flex flex-col md:flex-row bg-white rounded-xl shadow-lg overflow-hidden mt-8 mx-4 hover:shadow-2xl transition-shadow duration-300">
-        {/* Image */}
-        <div className="w-48 h-48 flex-shrink-0 rounded-l-xl overflow-hidden">
+        <div className="w-full md:w-48 h-48 md:h-48 flex-shrink-0 rounded-t-xl md:rounded-l-xl md:rounded-t-none overflow-hidden">
           <img
             src={imageSrc}
             alt={post.title}
             className="w-full h-full object-cover"
           />
         </div>
-
         {/* Content */}
         <div className="md:w-2/3 p-6 flex flex-col justify-between">
           <h1 className="text-xl md:text-3xl font-bold mb-2 text-gray-900">
